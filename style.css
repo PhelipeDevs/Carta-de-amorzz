@@ -28,6 +28,84 @@ body{
   animation: backgroundGlow 16s ease infinite;
 }
 
+.lock-screen{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:24px;
+  background:rgba(5,0,0,.94);
+  color:#fff;
+}
+
+.lock-card{
+  width:100%;
+  max-width:520px;
+  padding:34px 28px;
+  text-align:center;
+  border-radius:32px;
+  background:rgba(20,6,12,.98);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 30px 110px rgba(0,0,0,.55);
+  animation: lockGlow 2.8s ease-in-out infinite alternate;
+}
+
+.lock-icon{
+  font-size:3.2rem;
+  margin-bottom:18px;
+  display:inline-block;
+  animation: lockShake 2s ease-in-out infinite;
+}
+
+.lock-card h2{
+  font-size:2.2rem;
+  margin-bottom:14px;
+  color:#ffccd9;
+}
+
+.lock-card p{
+  color:#f3d7e2;
+  line-height:1.8;
+}
+
+.countdown-timer{
+  margin:20px auto 10px;
+  display:inline-flex;
+  padding:14px 22px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  color:#ffebf2;
+  font-size:1.1rem;
+  letter-spacing:.04em;
+}
+
+.lock-note{
+  font-size:.95rem;
+  color:#e3bac4;
+  margin-top:14px;
+}
+
+.open-btn.disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  pointer-events:none;
+  animation:none;
+  filter:saturate(.7);
+}
+
+@keyframes lockGlow {
+  0% { box-shadow:0 25px 65px rgba(255,80,150,.12); }
+  100% { box-shadow:0 35px 105px rgba(255,80,150,.24); }
+}
+
+@keyframes lockShake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
 @keyframes backgroundPulse {
   0%,100% { background-position: 50% 0%, 50% 100%; }
   50% { background-position: 45% 10%, 55% 90%; }

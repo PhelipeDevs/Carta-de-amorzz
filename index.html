@@ -11,6 +11,16 @@
 <body>
   <div class="background"></div>
 
+  <div class="lock-screen">
+    <div class="lock-card">
+      <div class="lock-icon">🔒</div>
+      <h2>Carta bloqueada</h2>
+      <p id="lockMessage">A carta só pode ser aberta no dia 12.</p>
+      <div class="countdown-timer" id="countdownTimer">Carregando tempo...</div>
+      <p class="lock-note">Volte no dia 12 para abrir esta carta especial.</p>
+    </div>
+  </div>
+
   <div class="envelope-wrapper">
     <div class="envelope">
       <div class="envelope-top"></div>
@@ -151,7 +161,7 @@
           </div>
         </article>
         <article class="photo-card">
-          <img src="fotos/foto16.jpg" alt="Foto 16">
+          <img src="fotos/foto16.jpeg" alt="Foto 16">
           <div class="photo-copy">
             <h3>Futuro</h3>
             <p>O que ainda vamos viver.</p>
@@ -173,8 +183,63 @@
     const envelopeWrapper = document.querySelector('.envelope-wrapper');
     const bgMusic = document.getElementById('bgMusic');
     const playMusic = document.getElementById('playMusic');
+    const lockScreen = document.querySelector('.lock-screen');
+    const countdownTimer = document.getElementById('countdownTimer');
+    const lockMessage = document.getElementById('lockMessage');
+
+    function pad(value) {
+      return String(value).padStart(2, '0');
+    }
+
+    function isUnlockedToday() {
+      return new Date().getDate() === 12;
+    }
+
+    function getNextUnlockTime() {
+      const now = new Date();
+      const target = new Date(now.getFullYear(), now.getMonth(), 12, 0, 0, 0, 0);
+      if (now.getDate() === 12) {
+        return now;
+      }
+      if (now.getDate() > 12) {
+        target.setMonth(target.getMonth() + 1);
+      }
+      return target;
+    }
+
+    function updateLock() {
+      const now = new Date();
+      if (isUnlockedToday()) {
+        lockScreen.classList.add('hidden');
+        openCard.disabled = false;
+        openCard.classList.remove('disabled');
+        countdownTimer.textContent = 'Hoje é dia 12 — a carta está liberada!';
+        lockMessage.textContent = 'Abra a carta quando quiser.';
+        return;
+      }
+
+      const next = getNextUnlockTime();
+      const diff = next - now;
+      if (diff <= 0) {
+        lockScreen.classList.add('hidden');
+        openCard.disabled = false;
+        openCard.classList.remove('disabled');
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      countdownTimer.textContent = `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+      lockMessage.textContent = 'A carta só pode ser aberta no dia 12. Faltam:';
+      lockScreen.classList.remove('hidden');
+      openCard.disabled = true;
+      openCard.classList.add('disabled');
+    }
 
     openCard.addEventListener('click', () => {
+      if (openCard.disabled) return;
       envelopeWrapper.classList.add('opened');
       page.classList.remove('hidden');
       document.querySelector('.hero-card').classList.add('visible-section');
@@ -197,6 +262,9 @@
         playMusic.textContent = '▶️ Tocar música';
       }
     });
+
+    setInterval(updateLock, 1000);
+    updateLock();
   </script>
 </body>
 </html>
