@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Uma carta especial de Dia dos Namorados com fotos e mensagem.">
+  <title>Carta de Amor</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="envelope-wrapper">
+    <div class="envelope">
+      <div class="envelope-top"></div>
+      <div class="envelope-body">
+        <div class="letter-preview">
+          <h1>Para você, meu amor</h1>
+          <p>Toque para abrir a carta e revelar nossas memórias.</p>
+          <button id="openCard" class="open-btn">Abrir carta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="page hidden">
+    <section class="hero-card hidden-section">
+      <div class="hero-content">
+        <h2>Minha carta para você</h2>
+        <p>Esta página abre como uma carta especial. Quando você abrir, a música começará e nossas fotos serão lembradas com carinho.</p>
+        <div class="music-box">
+          <button id="playMusic">▶️ Tocar música</button>
+          <button id="viewSlideshow" class="open-btn">Ver todas as fotos</button>
+
+          <audio id="bgMusic" loop>
+            <source src="musica.mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+          </audio>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section hidden" id="gallerySection">
+      <h2>Nossas 16 memórias</h2>
+      <div class="gallery-grid">
+        <article class="photo-card">
+          <img src="fotos/foto1.jpeg" alt="Foto 1">
+          <div class="photo-copy">
+            <h3>Primeiro encontro</h3>
+            <p>O início de tudo com carinho.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto2.jpeg" alt="Foto 2">
+          <div class="photo-copy">
+            <h3>Risos</h3>
+            <p>Sorrisos que ainda lembro.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto3.jpeg" alt="Foto 3">
+          <div class="photo-copy">
+            <h3>Abraço</h3>
+            <p>Um momento aconchegante.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto4.jpeg" alt="Foto 4">
+          <div class="photo-copy">
+            <h3>Noite especial</h3>
+            <p>Uma noite para nunca esquecer.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto5.jpeg" alt="Foto 5">
+          <div class="photo-copy">
+            <h3>Juntos</h3>
+            <p>Um dia que ficou guardado.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto6.jpeg" alt="Foto 6">
+          <div class="photo-copy">
+            <h3>Carinho</h3>
+            <p>Pequenos gestos de amor.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto7.jpeg" alt="Foto 7">
+          <div class="photo-copy">
+            <h3>Aventura</h3>
+            <p>Novas experiências juntos.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto8.jpeg" alt="Foto 8">
+          <div class="photo-copy">
+            <h3>Viagem</h3>
+            <p>Momentos fora de casa.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto9.jpeg" alt="Foto 9">
+          <div class="photo-copy">
+            <h3>Companheirismo</h3>
+            <p>Você ao meu lado sempre.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto10.jpeg" alt="Foto 10">
+          <div class="photo-copy">
+            <h3>Sorriso</h3>
+            <p>Seu sorriso é meu favorito.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto11.jpeg" alt="Foto 11">
+          <div class="photo-copy">
+            <h3>Conexão</h3>
+            <p>Quando tudo faz sentido.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto12.jpeg" alt="Foto 12">
+          <div class="photo-copy">
+            <h3>Detalhes</h3>
+            <p>As pequenas coisas fazem diferença.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto13.jpeg" alt="Foto 13">
+          <div class="photo-copy">
+            <h3>Carinho</h3>
+            <p>Um momento de cuidado.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto14.jpeg" alt="Foto 14">
+          <div class="photo-copy">
+            <h3>Amizade</h3>
+            <p>Você é minha parceira preferida.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto15.jpeg" alt="Foto 15">
+          <div class="photo-copy">
+            <h3>Memória</h3>
+            <p>Guardada com muito carinho.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="fotos/foto16.jpg" alt="Foto 16">
+          <div class="photo-copy">
+            <h3>Futuro</h3>
+            <p>O que ainda vamos viver.</p>
+          </div>
+        </article>
+      </div>
+      <div class="gallery-actions" style="text-align:center; margin-top:32px;">
+        <a href="declaracao.html" target="_blank" rel="noopener" class="open-btn">Ir para Declaração de Amor</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const openCard = document.getElementById('openCard');
+    const viewSlideshow = document.getElementById('viewSlideshow');
+    const page = document.querySelector('.page');
+    const gallerySection = document.getElementById('gallerySection');
+    const envelopeWrapper = document.querySelector('.envelope-wrapper');
+    const bgMusic = document.getElementById('bgMusic');
+    const playMusic = document.getElementById('playMusic');
+
+    openCard.addEventListener('click', () => {
+      envelopeWrapper.classList.add('opened');
+      page.classList.remove('hidden');
+      document.querySelector('.hero-card').classList.add('visible-section');
+      bgMusic.play().catch(() => {});
+      playMusic.textContent = '⏸️ Parar música';
+    });
+
+    viewSlideshow.addEventListener('click', () => {
+      gallerySection.classList.remove('hidden');
+      gallerySection.classList.add('visible-section');
+      gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    playMusic.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.play().catch(() => {});
+        playMusic.textContent = '⏸️ Parar música';
+      } else {
+        bgMusic.pause();
+        playMusic.textContent = '▶️ Tocar música';
+      }
+    });
+  </script>
+</body>
+</html>
